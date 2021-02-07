@@ -9,10 +9,10 @@ from flair.datasets import MIT_MOVIE_NER_COMPLEX
 
 flair.set_seed(1)
 
-tagger = TARSSequenceTagger2.load("resources/v1/conll_3-simple/best-model.pt")
+#tagger = TARSSequenceTagger2.load("resources/v1/conll_3-simple/best-model.pt")
 
 ### train k sentences for each tag in new corpus
-k = 3
+k = 1
 label_name_map = {
 "Character_Name":"Character Name"
 }
@@ -20,24 +20,32 @@ print(label_name_map)
 corpus = MIT_MOVIE_NER_COMPLEX(tag_to_bioes=None, tag_to_bio2="ner")
 tag_dictionary = corpus.make_label_dictionary()
 corpus_sents = []
-tag_countdown = []
-for idx, item in tag_dictionary.idx2item:
-    tag_countdown[idx] = k
+tag_countdown = [k for i in range(len(tag_dictionary.idx2item))]
+print(tag_countdown)
+
+#for idx, item in enumerate(tag_dictionary.idx2item):
+#    tag_countdown[idx] = k
 
 for idx in range(len(corpus.train)):
-    sent = corpus.test[idx]
+    sent = corpus.train[idx]
     sent_picked = False
     for tkn in sent:
         if sent_picked:
             break
-        tag_encoded = tkn.get("ner").value.encode("UTF-8")
-        if tag_dictionary.idx2item.contains(tag_encoded) and tag_countdown[tag_dictionary.item2idx[tag_encoded]] > 0:
+        tag_encoded = tkn.get_tag("ner").value.encode("UTF-8")
+        if tag_encoded in tag_dictionary.idx2item and tag_countdown[tag_dictionary.item2idx[tag_encoded]] > 0:
             corpus_sents.append(sent)
             tag_countdown[tag_dictionary.item2idx[tag_encoded]] -= 1
             sent_picked = True
+            print("###")
+            print(tag_dictionary.item2idx[tag_encoded])
+            print(tag_countdown[tag_dictionary.item2idx[tag_encoded]])
+            print("###")
 
 print(tag_countdown)
 print(corpus_sents)
+print(len(corpus_sents))
+print(len(tag_dictionary.item2idx))
 
 quit()
 
