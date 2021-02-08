@@ -3,13 +3,16 @@ import os
 sys.path.insert(0, "/vol/fob-vol7/mi19/harnisph/flair")
 
 import flair
+import torch
 from flair.models import TARSSequenceTagger2
-from flair.data import Sentence
-from flair.datasets import MIT_MOVIE_NER_COMPLEX
+from flair.data import Sentence, Corpus
+from flair.datasets import MIT_MOVIE_NER_COMPLEX, SentenceDataset
+from flair.trainers import ModelTrainer
+from torch.optim.lr_scheduler import OneCycleLR
 
 flair.set_seed(1)
 
-#tagger = TARSSequenceTagger2.load("resources/v1/conll_3-simple/best-model.pt")
+tagger = TARSSequenceTagger2.load("resources/v1/conll_3-simple/best-model.pt")
 
 ### train k sentences for each tag in new corpus
 k = 1
@@ -23,9 +26,6 @@ corpus_sents = []
 tag_countdown = [k for i in range(len(tag_dictionary.idx2item))]
 print(tag_countdown)
 
-#for idx, item in enumerate(tag_dictionary.idx2item):
-#    tag_countdown[idx] = k
-
 for idx in range(len(corpus.train)):
     sent = corpus.train[idx]
     sent_picked = False
@@ -37,17 +37,27 @@ for idx in range(len(corpus.train)):
             corpus_sents.append(sent)
             tag_countdown[tag_dictionary.item2idx[tag_encoded]] -= 1
             sent_picked = True
-            print("###")
-            print(tag_dictionary.item2idx[tag_encoded])
-            print(tag_countdown[tag_dictionary.item2idx[tag_encoded]])
-            print("###")
 
 print(tag_countdown)
 print(corpus_sents)
 print(len(corpus_sents))
 print(len(tag_dictionary.item2idx))
 
-quit()
+training_dataset = SentenceDataset(corpus_sents)
+training_corpus = Corpus(training_dataset, sample_missing_splits=False)
+trainer = ModelTrainer(tagger, training_corpus, optimizer=torch.optim.AdamW)
+trainer.train(
+    base_path='resources/v1/fewshot-conll_3-simple-to-moviecomplex-k' + str(k),
+    learning_rate=5.0e-5,
+    mini_batch_size=32,
+    mini_batch_chunk_size=None,
+    max_epochs=10,
+    weight_decay=0.,
+    embeddings_storage_mode="none",
+    scheduler=OneCycleLR,
+)
+
+# evaluation
 
 sentences = [
 Sentence("The Parlament of the United Kingdom is discussing a variety of topics."),
@@ -80,15 +90,11 @@ label_name_map = {
 }
 corpus = MIT_MOVIE_NER_COMPLEX(tag_to_bioes=None, tag_to_bio2="ner", label_name_map=label_name_map)
 corpus = corpus.downsample(0.1)
-corpus_sents = []
 
 tag_dictionary = corpus.make_label_dictionary()
 tagger.add_and_switch_to_new_task("EVALUATION", tag_dictionary, "ner")
 
-for idx in range(len(corpus.test)):
-    corpus_sents.append(corpus.test[idx])
-
-result, eval_loss = tagger.evaluate(corpus_sents)
+result, eval_loss = tagger.evaluate(corpus.test)
 
 print(result.main_score)
 print(result.log_header)
