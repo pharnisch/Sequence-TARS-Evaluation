@@ -20,11 +20,10 @@ label_name_map = {
 "Character_Name":"Character Name"
 }
 print(label_name_map)
-corpus = MIT_MOVIE_NER_COMPLEX(tag_to_bioes=None, tag_to_bio2="ner")
+corpus = MIT_MOVIE_NER_COMPLEX(tag_to_bioes=None, tag_to_bio2="ner", label_name_map=label_name_map)
 tag_dictionary = corpus.make_label_dictionary()
 corpus_sents = []
 tag_countdown = [k for i in range(len(tag_dictionary.idx2item))]
-print(tag_countdown)
 
 for idx in range(len(corpus.train)):
     sent = corpus.train[idx]
@@ -86,15 +85,7 @@ for idx in range(len(sentences)):
 	print("-------------")
 
 
-label_name_map = {
-"Character_Name":"Character Name"
-}
-corpus = MIT_MOVIE_NER_COMPLEX(tag_to_bioes=None, tag_to_bio2="ner", label_name_map=label_name_map)
-corpus = corpus.downsample(0.1)
-
-tag_dictionary = corpus.make_label_dictionary()
 tagger.add_and_switch_to_new_task("EVALUATION", tag_dictionary, "ner")
-
 result, eval_loss = tagger.evaluate(corpus.test)
 
 print(result.main_score)
