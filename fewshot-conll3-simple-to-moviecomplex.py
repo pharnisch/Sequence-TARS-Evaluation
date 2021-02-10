@@ -38,13 +38,11 @@ for idx in range(len(corpus.train)):
             tag_countdown[tag_dictionary.item2idx[tag_encoded]] -= 1
             sent_picked = True
 
-print(tag_countdown)
-print(corpus_sents)
-print(len(corpus_sents))
-print(len(tag_dictionary.item2idx))
+print("sents for training: " + str(len(corpus_sents)))
+print("amount of items in dict: " + str(len(tag_dictionary.item2idx)))
 
 training_dataset = SentenceDataset(corpus_sents)
-training_corpus = Corpus(training_dataset, sample_missing_splits=False)
+training_corpus = Corpus(train=training_dataset, dev=corpus.dev, test=corpus.test, sample_missing_splits=False)
 trainer = ModelTrainer(tagger, training_corpus, optimizer=torch.optim.AdamW)
 tag_type = "ner"
 label_dictionary = training_corpus.make_label_dictionary(tag_type)
