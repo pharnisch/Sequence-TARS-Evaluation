@@ -5,6 +5,7 @@ sys.path.insert(0, "/vol/fob-vol7/mi19/harnisph/flair")
 import flair
 import torch
 from flair.models import TARSSequenceTagger2
+from flair.data import Sentence
 from flair.datasets import MIT_MOVIE_NER_COMPLEX
 
 flair.set_seed(1)
@@ -19,7 +20,12 @@ corpus = MIT_MOVIE_NER_COMPLEX(tag_to_bioes=None, tag_to_bio2="ner", label_name_
 tag_type = "ner"
 tag_dictionary = corpus.make_label_dictionary(tag_type)
 tagger.add_and_switch_to_new_task("zeroshot-conll_3-simple-to-moviecomplex", tag_dictionary=tag_dictionary, tag_type=tag_type)
-tagger.evaluate(corpus.test)
+result, eval_loss = tagger.evaluate(corpus.test)
+print(result.main_score)
+print(result.log_header)
+print(result.log_line)
+print(result.detailed_results)
+print(eval_loss)
 
 # evaluation
 
