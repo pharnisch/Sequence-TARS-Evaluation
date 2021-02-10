@@ -21,7 +21,6 @@ label_name_map = {
 }
 print(label_name_map)
 corpus = MIT_MOVIE_NER_COMPLEX(tag_to_bioes=None, tag_to_bio2="ner", label_name_map=label_name_map)
-tag_dictionary = corpus.make_label_dictionary()
 corpus_sents = []
 tag_countdown = [k for i in range(len(tag_dictionary.idx2item))]
 
@@ -44,8 +43,8 @@ training_dataset = SentenceDataset(corpus_sents)
 training_corpus = Corpus(train=training_dataset, dev=corpus.dev, test=corpus.test, sample_missing_splits=False)
 trainer = ModelTrainer(tagger, training_corpus, optimizer=torch.optim.AdamW)
 tag_type = "ner"
-label_dictionary = training_corpus.make_label_dictionary(tag_type)
-tagger.add_and_switch_to_new_task("fewshot-conll3-simple-to-moviecomplex", tag_dictionary=label_dictionary, tag_type=tag_type)
+tag_dictionary = training_corpus.make_label_dictionary(tag_type)
+tagger.add_and_switch_to_new_task("fewshot-conll3-simple-to-moviecomplex", tag_dictionary=tag_dictionary, tag_type=tag_type)
 trainer.train(
     base_path='resources/v1/fewshot-conll_3-simple-to-moviecomplex-k' + str(k),
     learning_rate=5.0e-5,
@@ -83,13 +82,3 @@ for idx in range(len(sentences)):
 	print(str(idx))
 	print(sent.to_tagged_string)
 	print("-------------")
-
-
-tagger.add_and_switch_to_new_task("EVALUATION", tag_dictionary, "ner")
-result, eval_loss = tagger.evaluate(corpus.test)
-
-print(result.main_score)
-print(result.log_header)
-print(result.log_line)
-print(result.detailed_results)
-print(eval_loss)
