@@ -17,6 +17,7 @@ label_name_map = {
 }
 print(label_name_map)
 corpus = MIT_MOVIE_NER_COMPLEX(tag_to_bioes=None, tag_to_bio2="ner", label_name_map=label_name_map)
+corpus = corpus.downsample(0.1)
 tag_type = "ner"
 tag_dictionary = corpus.make_label_dictionary(tag_type)
 tagger.add_and_switch_to_new_task("zeroshot-conll_3-simple-to-moviecomplex", tag_dictionary=tag_dictionary, tag_type=tag_type)
