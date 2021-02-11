@@ -32,18 +32,42 @@ print(eval_loss)
 
 sentences = [
 Sentence("The Parlament of the United Kingdom is discussing a variety of topics."),
-Sentence("A man fell in love with a woman. This takes place in the last century. The film received the Golden Love Film Award."),
-Sentence("The Company of Coca Cola was invented in 1901."),
-Sentence("This is very frustrating! I was smiling since I saw you."),
+Sentence("Bayern Munich won the german soccer series the sixth time in a row."),
 Sentence("The Green Party received only a small percentage of the vote."),
+Sentence("The film received the Golden Love Film Award."),
+Sentence("I hated the Sci-Fi Genre since I saw this movie."),
+Sentence("Today, this pair of shoes costs 100 Dollar."),
+Sentence("The Company of Coca Cola was invented in 1901."),
+Sentence("BAYER is based in Leverkusen."),
+Sentence("The Parlament of the United Kingdom is discussing a variety of topics."),
+Sentence("This is very frustrating!"),
+Sentence("I am happy, yay!"),
+Sentence("This does not affect me."),
+Sentence("The Green Party received only a small percentage of the vote."),
+Sentence("The Parlament of the United Kingdom is discussing a variety of topics."),
+Sentence("The Republican Party is split in regard to Donald Trump."),
+Sentence("Biden is the new president of the United States of America."),
+Sentence("There are many elections in Germany this year."),
 Sentence("Bayern Munich won the german soccer series the sixth time in a row.")
 ]
 
 tags = [
 ["O", "B-Institution", "I-Institution", "B-Place", "I-Place", "B-Diverse", "I-Diverse"],
+["O", "B-Institution", "I-Institution", "B-Place", "I-Place", "B-Diverse", "I-Diverse"],
+["O", "B-Institution", "I-Institution", "B-Place", "I-Place", "B-Diverse", "I-Diverse"],
+["O", "B-Story", "I-Story", "B-Price", "I-Price", "B-Time", "I-Time"],
+["O", "B-Story", "I-Story", "B-Price", "I-Price", "B-Time", "I-Time"],
 ["O", "B-Story", "I-Story", "B-Price", "I-Price", "B-Time", "I-Time"],
 ["O", "B-Institution", "I-Institution", "B-Time", "I-Time"],
+["O", "B-Institution", "I-Institution", "B-Time", "I-Time"],
+["O", "B-Institution", "I-Institution", "B-Time", "I-Time"],
 ["O", "B-Happy", "I-Happy", "B-Sad", "I-Sad", "B-Neutral", "I-Neutral"],
+["O", "B-Happy", "I-Happy", "B-Sad", "I-Sad", "B-Neutral", "I-Neutral"],
+["O", "B-Happy", "I-Happy", "B-Sad", "I-Sad", "B-Neutral", "I-Neutral"],
+["O", "B-Politician", "I-Politician", "B-Party", "I-Party"],
+["O", "B-Politician", "I-Politician", "B-Party", "I-Party"],
+["O", "B-Politician", "I-Politician", "B-Party", "I-Party"],
+["O", "B-Politician", "I-Politician", "B-Party", "I-Party"],
 ["O", "B-Politician", "I-Politician", "B-Party", "I-Party"],
 ["O", "B-Sports Club", "I-Sports Club"]
 ]
