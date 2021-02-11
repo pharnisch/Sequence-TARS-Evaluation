@@ -15,7 +15,7 @@ flair.set_seed(1)
 tagger = TARSSequenceTagger2.load("resources/v1/conll_3-cryptic/final-model.pt")
 
 ### train k sentences for each tag in new corpus
-k = 5
+k = 1
 label_name_map = {
 "Character_Name":"Character Name"
 }

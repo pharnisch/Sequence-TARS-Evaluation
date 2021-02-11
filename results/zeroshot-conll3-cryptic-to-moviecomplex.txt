@@ -1,0 +1,40 @@
+0.003436426116838488
+PRECISION       RECALL  F1
+0.0238  0.0019  0.0034
+
+Results:
+- F1-score (micro) 0.0034
+- F1-score (macro) 0.0043
+
+By class:
+Actor      tp: 0 - fp: 1 - fn: 116 - precision: 0.0000 - recall: 0.0000 - f1-score: 0.0000
+Award      tp: 0 - fp: 2 - fn: 8 - precision: 0.0000 - recall: 0.0000 - f1-score: 0.0000
+Character Name tp: 0 - fp: 9 - fn: 30 - precision: 0.0000 - recall: 0.0000 - f1-score: 0.0000
+Director   tp: 1 - fp: 6 - fn: 31 - precision: 0.1429 - recall: 0.0312 - f1-score: 0.0513
+Genre      tp: 0 - fp: 4 - fn: 69 - precision: 0.0000 - recall: 0.0000 - f1-score: 0.0000
+Opinion    tp: 0 - fp: 7 - fn: 17 - precision: 0.0000 - recall: 0.0000 - f1-score: 0.0000
+Origin     tp: 0 - fp: 3 - fn: 25 - precision: 0.0000 - recall: 0.0000 - f1-score: 0.0000
+Plot       tp: 0 - fp: 0 - fn: 160 - precision: 0.0000 - recall: 0.0000 - f1-score: 0.0000
+Quote      tp: 0 - fp: 3 - fn: 6 - precision: 0.0000 - recall: 0.0000 - f1-score: 0.0000
+Relationship tp: 0 - fp: 0 - fn: 19 - precision: 0.0000 - recall: 0.0000 - f1-score: 0.0000
+Soundtrack tp: 0 - fp: 4 - fn: 1 - precision: 0.0000 - recall: 0.0000 - f1-score: 0.0000
+Year       tp: 0 - fp: 2 - fn: 57 - precision: 0.0000 - recall: 0.0000 - f1-score: 0.0000
+tensor(0.4367, device='cuda:0')
+0
+<bound method Sentence.to_tagged_string of Sentence: "The Parlament of the United Kingdom is discussing a variety of topics ."   [− Tokens: 13  − Token-Labels: "The Parlament of the United <B-Institution> Kingdom <I-Institution> is discussing a variety of topics ."]>
+-------------
+1
+<bound method Sentence.to_tagged_string of Sentence: "A man fell in love with a woman . This takes place in the last century . The film received the Golden Love Film Award ."   [− Tokens: 26]>
+-------------
+2
+<bound method Sentence.to_tagged_string of Sentence: "The Company of Coca Cola was invented in 1901 ."   [− Tokens: 10  − Token-Labels: "The Company of Coca <B-Time> Cola was invented in 1901 ."]>
+-------------
+3
+<bound method Sentence.to_tagged_string of Sentence: "This is very frustrating ! I was smiling since I saw you ."   [− Tokens: 13]>
+-------------
+4
+<bound method Sentence.to_tagged_string of Sentence: "The Green Party received only a small percentage of the vote ."   [− Tokens: 12  − Token-Labels: "The Green <B-Politician> Party received only a small percentage of the vote ."]>
+-------------
+5
+<bound method Sentence.to_tagged_string of Sentence: "Bayern Munich won the german soccer series the sixth time in a row ."   [− Tokens: 14  − Token-Labels: "Bayern <B-Sports Club> Munich <I-Sports Club> won the german soccer series the sixth time in a row ."]>
+-------------
