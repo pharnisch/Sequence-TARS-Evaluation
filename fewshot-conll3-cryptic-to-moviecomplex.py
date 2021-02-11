@@ -15,13 +15,13 @@ flair.set_seed(1)
 tagger = TARSSequenceTagger2.load("resources/v1/conll_3-cryptic/final-model.pt")
 
 ### train k sentences for each tag in new corpus
-k = 1
+k = 5
 label_name_map = {
 "Character_Name":"Character Name"
 }
 print(label_name_map)
 corpus = MIT_MOVIE_NER_COMPLEX(tag_to_bioes=None, tag_to_bio2="ner", label_name_map=label_name_map)
-corpus = corpus.downsample(0.1)
+corpus_small = corpus.downsample(0.1)
 tag_type = "ner"
 tag_dictionary = corpus.make_label_dictionary(tag_type)
 corpus_sents = []
@@ -43,7 +43,7 @@ print("sents for training: " + str(len(corpus_sents)))
 print("amount of items in dict: " + str(len(tag_dictionary.item2idx)))
 
 training_dataset = SentenceDataset(corpus_sents)
-training_corpus = Corpus(train=training_dataset, dev=corpus.dev, test=corpus.test, sample_missing_splits=False)
+training_corpus = Corpus(train=training_dataset, dev=corpus_small.dev, test=corpus_small.test, sample_missing_splits=False)
 trainer = ModelTrainer(tagger, training_corpus, optimizer=torch.optim.AdamW)
 tag_dictionary = training_corpus.make_label_dictionary(tag_type)
 tagger.add_and_switch_to_new_task("fewshot-conll3-cryptic-to-moviecomplex", tag_dictionary=tag_dictionary, tag_type=tag_type)
