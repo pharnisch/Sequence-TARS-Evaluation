@@ -24,17 +24,53 @@ tensor(0.4273, device='cuda:0')
 <bound method Sentence.to_tagged_string of Sentence: "The Parlament of the United Kingdom is discussing a variety of topics ."   [− Tokens: 13]>
 -------------
 1
-<bound method Sentence.to_tagged_string of Sentence: "A man fell in love with a woman . This takes place in the last century . The film received the Golden Love Film Award ."   [− Tokens: 26]>
+<bound method Sentence.to_tagged_string of Sentence: "Bayern Munich won the german soccer series the sixth time in a row ."   [− Tokens: 14  − Token-Labels: "Bayern <B-Institution> Munich <I-Institution> won the german soccer series the sixth time in a row ."]>
 -------------
 2
-<bound method Sentence.to_tagged_string of Sentence: "The Company of Coca Cola was invented in 1901 ."   [− Tokens: 10]>
--------------
-3
-<bound method Sentence.to_tagged_string of Sentence: "This is very frustrating ! I was smiling since I saw you ."   [− Tokens: 13]>
--------------
-4
 <bound method Sentence.to_tagged_string of Sentence: "The Green Party received only a small percentage of the vote ."   [− Tokens: 12]>
 -------------
+3
+<bound method Sentence.to_tagged_string of Sentence: "The film received the Golden Love Film Award ."   [− Tokens: 9]>
+-------------
+4
+<bound method Sentence.to_tagged_string of Sentence: "I hated the Sci-Fi Genre since I saw this movie ."   [− Tokens: 11]>
+-------------
 5
+<bound method Sentence.to_tagged_string of Sentence: "Today , this pair of shoes costs 100 Dollar ."   [− Tokens: 10]>
+-------------
+6
+<bound method Sentence.to_tagged_string of Sentence: "The Company of Coca Cola was invented in 1901 ."   [− Tokens: 10]>
+-------------
+7
+<bound method Sentence.to_tagged_string of Sentence: "BAYER is based in Leverkusen ."   [− Tokens: 6  − Token-Labels: "BAYER <B-Institution> is based in Leverkusen <B-Time> ."]>
+-------------
+8
+<bound method Sentence.to_tagged_string of Sentence: "The Parlament of the United Kingdom is discussing a variety of topics ."   [− Tokens: 13]>
+-------------
+9
+<bound method Sentence.to_tagged_string of Sentence: "This is very frustrating !"   [− Tokens: 5]>
+-------------
+10
+<bound method Sentence.to_tagged_string of Sentence: "I am happy , yay !"   [− Tokens: 6]>
+-------------
+11
+<bound method Sentence.to_tagged_string of Sentence: "This does not affect me ."   [− Tokens: 6]>
+-------------
+12
+<bound method Sentence.to_tagged_string of Sentence: "The Green Party received only a small percentage of the vote ."   [− Tokens: 12]>
+-------------
+13
+<bound method Sentence.to_tagged_string of Sentence: "The Parlament of the United Kingdom is discussing a variety of topics ."   [− Tokens: 13]>
+-------------
+14
+<bound method Sentence.to_tagged_string of Sentence: "The Republican Party is split in regard to Donald Trump ."   [− Tokens: 11]>
+-------------
+15
+<bound method Sentence.to_tagged_string of Sentence: "Biden is the new president of the United States of America ."   [− Tokens: 12  − Token-Labels: "Biden <B-Politician> is the new president of the United States of America ."]>
+-------------
+16
+<bound method Sentence.to_tagged_string of Sentence: "There are many elections in Germany this year ."   [− Tokens: 9]>
+-------------
+17
 <bound method Sentence.to_tagged_string of Sentence: "Bayern Munich won the german soccer series the sixth time in a row ."   [− Tokens: 14  − Token-Labels: "Bayern <B-Sports Club> Munich <I-Sports Club> won the german soccer series the sixth time in a row ."]>
 -------------
