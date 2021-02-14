@@ -15,18 +15,18 @@ from flair.datasets import MIT_MOVIE_NER_COMPLEX
 flair.set_seed(1)
 
 label_name_map = {
-"Actor":"qTn4TmUl",
-"Award":"7pPDqOvL",
-"Character_Name":"5qUqFBD5",
-"Director":"PQBQHhL3",  
-"Genre":"3AEsqGDz",    
-"Opinion":"AJaX185q",  
-"Origin":"YLwPs3fi",     
-"Plot":"nCeNYz62",      
-"Quote":"JqAbdoZM",      
-"Relationship":"xaHvhNBE",
-"Soundtrack":"s8oZK7q4",
-"Year":"m1vXhYk3"
+"Actor":"Movie Actor",
+"Award":"Movie Award",
+"Character_Name":"Movie Character Name",
+"Director":"Movie Director",  
+"Genre":"Movie Genre",    
+"Opinion":"Movie Opinion",  
+"Origin":"Movie Origin",     
+"Plot":"Movie Plot",      
+"Quote":"Movie Quote",      
+"Relationship":"Movie Relationship",
+"Soundtrack":"Movie Soundtrack",
+"Year":"Movie Year"
 }
 
 print(label_name_map)
@@ -42,7 +42,7 @@ tagger = TARSSequenceTagger2(tag_dictionary=label_dictionary, tag_type=tag_type,
 trainer = ModelTrainer(tagger, corpus, optimizer=torch.optim.AdamW)
 from torch.optim.lr_scheduler import OneCycleLR
 trainer.train(
-    base_path='resources/v1/moviecomplex-cryptic',
+    base_path='resources/v1/moviecomplex-long',
     learning_rate=5.0e-5,
     mini_batch_size=32,
     mini_batch_chunk_size=None,

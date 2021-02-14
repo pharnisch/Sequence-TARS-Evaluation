@@ -15,7 +15,18 @@ from flair.datasets import MIT_MOVIE_NER_COMPLEX
 flair.set_seed(1)
 
 label_name_map = {
-"Character_Name":"Character Name"
+"Actor":"Actor Artist Character",
+"Award":"Award Trophy",
+"Character_Name":"Character Name",
+"Director":"Director Leader Organizer",  
+"Genre":"Genre Kind Style Category Class",    
+"Opinion":"Opinion Impression",  
+"Origin":"Origin Provenance",     
+"Plot":"Plot Scene Narrative",      
+"Quote":"Quote Cite",      
+"Relationship":"Relationship Link",
+"Soundtrack":"Soundtrack Music",
+"Year":"Year Time"
 }
 
 print(label_name_map)
