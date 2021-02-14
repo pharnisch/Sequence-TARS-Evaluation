@@ -5,10 +5,45 @@ sys.path.insert(0, "/vol/fob-vol7/mi19/harnisph/flair")
 import flair
 import torch
 from flair.models import TARSSequenceTagger2
-from flair.data import Sentence, Corpus
+from flair.data import Sentence, Corpus, Dictionary
 from flair.datasets import MIT_MOVIE_NER_COMPLEX, SentenceDataset
 from flair.trainers import ModelTrainer
 from torch.optim.lr_scheduler import OneCycleLR
+
+# helper
+
+def _get_tag_dictionary_no_prefix(tag_dictionary):
+    candidate_tag_list = []
+    for tag in tag_dictionary.idx2item:
+        tag = tag.decode("utf-8")
+        prefix, tag_no_prefix = _split_tag(tag)
+        if prefix == "B" or prefix == "I":
+            candidate_tag_list.append(tag_no_prefix)
+    candidate_tag_list = _remove_not_unique_items_from_list(candidate_tag_list)
+
+    tag_dictionary_no_prefix: Dictionary = Dictionary(add_unk=False)
+    for tag in candidate_tag_list:
+        tag_dictionary_no_prefix.add_item(tag)
+
+    return tag_dictionary_no_prefix
+
+def _split_tag(tag: str):
+    if tag == "O":
+        return tag, None
+    elif "-" in tag:
+        tag_split = tag.split("-")
+        return tag_split[0], "-".join(tag_split[1:])
+    else:
+        return None, None
+
+def _remove_not_unique_items_from_list(l: list):
+    new_list = []
+    for item in l:
+        if item not in new_list:
+            new_list.append(item)
+    return new_list
+
+####
 
 flair.set_seed(1)
 
@@ -21,11 +56,12 @@ label_name_map = {
 }
 print(label_name_map)
 corpus = MIT_MOVIE_NER_COMPLEX(tag_to_bioes=None, tag_to_bio2="ner", label_name_map=label_name_map)
-corpus = corpus.downsample(0.1)
+corpus_small = corpus.downsample(0.1)
 tag_type = "ner"
 tag_dictionary = corpus.make_label_dictionary(tag_type)
 corpus_sents = []
-tag_countdown = [k for i in range(len(tag_dictionary.idx2item))]
+tag_dictionary_no_prefix = _get_tag_dictionary_no_prefix(tag_dictionary)
+tag_countdown = [k for i in range(len(tag_dictionary_no_prefix.idx2item))]
 
 for idx in range(len(corpus.train)):
     sent = corpus.train[idx]
@@ -33,17 +69,21 @@ for idx in range(len(corpus.train)):
     for tkn in sent:
         if sent_picked:
             break
-        tag_encoded = tkn.get_tag("ner").value.encode("UTF-8")
-        if tag_encoded in tag_dictionary.idx2item and tag_countdown[tag_dictionary.item2idx[tag_encoded]] > 0:
+        tag = tkn.get_tag("ner").value
+        pref, tag_no_pref = _split_tag(tag)
+        if tag_no_pref is None:
+            break
+        tag_no_pref_encoded = tag_no_pref.encode("utf-8")
+        if tag_no_pref_encoded in tag_dictionary_no_prefix.idx2item and tag_countdown[tag_dictionary_no_prefix.item2idx[tag_no_pref_encoded]] > 0:
             corpus_sents.append(sent)
-            tag_countdown[tag_dictionary.item2idx[tag_encoded]] -= 1
+            tag_countdown[tag_dictionary_no_prefix.item2idx[tag_no_pref_encoded]] -= 1
             sent_picked = True
 
 print("sents for training: " + str(len(corpus_sents)))
 print("amount of items in dict: " + str(len(tag_dictionary.item2idx)))
 
 training_dataset = SentenceDataset(corpus_sents)
-training_corpus = Corpus(train=training_dataset, dev=corpus.dev, test=corpus.test, sample_missing_splits=False)
+training_corpus = Corpus(train=training_dataset, dev=corpus_small.dev, test=corpus_small.test, sample_missing_splits=False)
 trainer = ModelTrainer(tagger, training_corpus, optimizer=torch.optim.AdamW)
 tag_dictionary = training_corpus.make_label_dictionary(tag_type)
 tagger.add_and_switch_to_new_task("fewshot-conll3-synonyms-to-moviecomplex", tag_dictionary=tag_dictionary, tag_type=tag_type)
