@@ -10,6 +10,41 @@ from flair.datasets import MIT_MOVIE_NER_COMPLEX, SentenceDataset
 from flair.trainers import ModelTrainer
 from torch.optim.lr_scheduler import OneCycleLR
 
+# helper
+
+def _get_tag_dictionary_no_prefix(tag_dictionary):
+    candidate_tag_list = []
+    for tag in tag_dictionary.idx2item:
+        tag = tag.decode("utf-8")
+        prefix, tag_no_prefix = _split_tag(tag)
+        if prefix == "B" or prefix == "I":
+            candidate_tag_list.append(tag_no_prefix)
+    candidate_tag_list = _remove_not_unique_items_from_list(candidate_tag_list)
+
+    tag_dictionary_no_prefix: Dictionary = Dictionary(add_unk=False)
+    for tag in candidate_tag_list:
+        tag_dictionary_no_prefix.add_item(tag)
+
+    return tag_dictionary_no_prefix
+
+def _split_tag(tag: str):
+    if tag == "O":
+        return tag, None
+    elif "-" in tag:
+        tag_split = tag.split("-")
+        return tag_split[0], "-".join(tag_split[1:])
+    else:
+        return None, None
+
+def _remove_not_unique_items_from_list(l: list):
+    new_list = []
+    for item in l:
+        if item not in new_list:
+            new_list.append(item)
+    return new_list
+
+####
+
 flair.set_seed(1)
 
 tagger = TARSSequenceTagger2.load("resources/v1/conll_3-cryptic/final-model.pt")
@@ -86,34 +121,3 @@ for idx in range(len(sentences)):
 	print(str(idx))
 	print(sent.to_tagged_string)
 	print("-------------")
-
-def _get_tag_dictionary_no_prefix(tag_dictionary):
-    candidate_tag_list = []
-    for tag in tag_dictionary.idx2item:
-        tag = tag.decode("utf-8")
-        prefix, tag_no_prefix = _split_tag(tag)
-        if prefix == "B" or prefix == "I":
-            candidate_tag_list.append(tag_no_prefix)
-    candidate_tag_list = _remove_not_unique_items_from_list(candidate_tag_list)
-
-    tag_dictionary_no_prefix: Dictionary = Dictionary(add_unk=False)
-    for tag in candidate_tag_list:
-        tag_dictionary_no_prefix.add_item(tag)
-
-    return tag_dictionary_no_prefix
-
-def _split_tag(tag: str):
-    if tag == "O":
-        return tag, None
-    elif "-" in tag:
-        tag_split = tag.split("-")
-        return tag_split[0], "-".join(tag_split[1:])
-    else:
-        return None, None
-
-def _remove_not_unique_items_from_list(l: list):
-    new_list = []
-    for item in l:
-        if item not in new_list:
-            new_list.append(item)
-    return new_list
