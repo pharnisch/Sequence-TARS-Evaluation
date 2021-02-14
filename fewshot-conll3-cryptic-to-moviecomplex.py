@@ -69,11 +69,14 @@ for idx in range(len(corpus.train)):
     for tkn in sent:
         if sent_picked:
             break
-        tag_encoded = tkn.get_tag("ner").value.encode("UTF-8")
-        pref, tag_no_pref = _split_tag(tag_encoded)
-        if tag_no_pref in tag_dictionary_no_prefix.idx2item and tag_countdown[tag_dictionary_no_prefix.item2idx[tag_no_pref]] > 0:
+        tag = tkn.get_tag("ner").value
+        pref, tag_no_pref = _split_tag(tag)
+        if tag_no_pref is None:
+            break
+        tag_no_pref_encoded = tag_no_pref.encode("utf-8")
+        if tag_no_pref_encoded in tag_dictionary_no_prefix.idx2item and tag_countdown[tag_dictionary_no_prefix.item2idx[tag_no_pref_encoded]] > 0:
             corpus_sents.append(sent)
-            tag_countdown[tag_dictionary_no_prefix.item2idx[tag_no_pref]] -= 1
+            tag_countdown[tag_dictionary_no_prefix.item2idx[tag_no_pref_encoded]] -= 1
             sent_picked = True
 
 print("sents for training: " + str(len(corpus_sents)))
