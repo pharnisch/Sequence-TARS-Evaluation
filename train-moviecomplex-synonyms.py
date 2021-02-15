@@ -30,7 +30,7 @@ label_name_map = {
 }
 
 print(label_name_map)
-corpus = MIT_MOVIE_NER_COMPLEX(tag_to_bioes=None, tag_to_bio2="ner")
+corpus = MIT_MOVIE_NER_COMPLEX(tag_to_bioes=None, tag_to_bio2="ner",label_name_map=label_name_map)
 corpus = corpus.downsample(0.1)
 
 tag_type = "ner"
