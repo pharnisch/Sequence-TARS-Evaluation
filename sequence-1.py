@@ -14,39 +14,39 @@ tagger = TARSSequenceTagger2.load("resources/v1/conll_3-simple/final-model.pt")
 
 # CONLL3
 
-label_name_map = {
-"LOC":"Location","PER":"Person","ORG":"Organization","MISC":"Miscellaneous"
-}
-print(label_name_map)
-corpus = CONLL_03(tag_to_bioes=None, tag_to_bio2="ner", label_name_map=label_name_map, base_path="/vol/fob-vol7/mi19/harnisph/studienprojekt-dokumentation")
-corpus = corpus.downsample(0.1)
-tag_type = "ner"
-tag_dictionary = corpus.make_label_dictionary(tag_type)
-tagger.add_and_switch_to_new_task("sequence-1-conll3", tag_dictionary=tag_dictionary, tag_type=tag_type)
-result, eval_loss = tagger.evaluate(corpus.test)
-print(result.main_score)
-print(result.log_header)
-print(result.log_line)
-print(result.detailed_results)
-print(eval_loss)
+# label_name_map = {
+# "LOC":"Location","PER":"Person","ORG":"Organization","MISC":"Miscellaneous"
+# }
+# print(label_name_map)
+# corpus = CONLL_03(tag_to_bioes=None, tag_to_bio2="ner", label_name_map=label_name_map, base_path="/vol/fob-vol7/mi19/harnisph/studienprojekt-dokumentation")
+# corpus = corpus.downsample(0.1)
+# tag_type = "ner"
+# tag_dictionary = corpus.make_label_dictionary(tag_type)
+# tagger.add_and_switch_to_new_task("sequence-1-conll3", tag_dictionary=tag_dictionary, tag_type=tag_type)
+# result, eval_loss = tagger.evaluate(corpus.test)
+# print(result.main_score)
+# print(result.log_header)
+# print(result.log_line)
+# print(result.detailed_results)
+# print(eval_loss)
 
-# MOVIECOMPLEX
+# # MOVIECOMPLEX
 
-label_name_map = {
-"Character_Name":"Character Name"
-}
-print(label_name_map)
-corpus = MIT_MOVIE_NER_COMPLEX(tag_to_bioes=None, tag_to_bio2="ner", label_name_map=label_name_map)
-corpus = corpus.downsample(0.1)
-tag_type = "ner"
-tag_dictionary = corpus.make_label_dictionary(tag_type)
-tagger.add_and_switch_to_new_task("sequence-1-moviecomplex", tag_dictionary=tag_dictionary, tag_type=tag_type)
-result, eval_loss = tagger.evaluate(corpus.test)
-print(result.main_score)
-print(result.log_header)
-print(result.log_line)
-print(result.detailed_results)
-print(eval_loss)
+# label_name_map = {
+# "Character_Name":"Character Name"
+# }
+# print(label_name_map)
+# corpus = MIT_MOVIE_NER_COMPLEX(tag_to_bioes=None, tag_to_bio2="ner", label_name_map=label_name_map)
+# corpus = corpus.downsample(0.1)
+# tag_type = "ner"
+# tag_dictionary = corpus.make_label_dictionary(tag_type)
+# tagger.add_and_switch_to_new_task("sequence-1-moviecomplex", tag_dictionary=tag_dictionary, tag_type=tag_type)
+# result, eval_loss = tagger.evaluate(corpus.test)
+# print(result.main_score)
+# print(result.log_header)
+# print(result.log_line)
+# print(result.detailed_results)
+# print(eval_loss)
 
 # WNUT17
 
@@ -54,7 +54,7 @@ label_name_map = {
 "person":"Person", "location":"Location", "creative-work":"Creative Work", "product":"Product", "corporation":"Corporation", "group":"Group"
 }
 print(label_name_map)
-corpus = WNUT_17(tag_to_bioes=None, tag_to_bio2="ner")
+corpus = WNUT_17(tag_to_bioes=None, tag_to_bio2="ner", label_name_map=label_name_map)
 corpus = corpus.downsample(0.1)
 tag_type = "ner"
 tag_dictionary = corpus.make_label_dictionary(tag_type)
@@ -71,7 +71,7 @@ print(eval_loss)
 label_name_map = {
 }
 print(label_name_map)
-corpus = WNUT_2020_NER(tag_to_bioes=None, tag_to_bio2="ner")
+corpus = WNUT_2020_NER(tag_to_bioes=None, tag_to_bio2="ner", label_name_map=label_name_map)
 corpus = corpus.downsample(0.1)
 tag_type = "ner"
 tag_dictionary = corpus.make_label_dictionary(tag_type)
@@ -88,7 +88,7 @@ print(eval_loss)
 label_name_map = {
 }
 print(label_name_map)
-corpus = BIOSCOPE(tag_to_bioes=None, tag_to_bio2="ner")
+corpus = BIOSCOPE(tag_to_bioes=None, tag_to_bio2="ner", label_name_map=label_name_map)
 corpus = corpus.downsample(0.1)
 tag_type = "ner"
 tag_dictionary = corpus.make_label_dictionary(tag_type)
