@@ -10,7 +10,7 @@ from flair.datasets import MIT_MOVIE_NER_COMPLEX, CONLL_03, WNUT_17, WNUT_2020_N
 
 flair.set_seed(1)
 
-tagger = TARSSequenceTagger2.load("resources/v1/conll_3-simple/final-model.pt")
+tagger = TARSSequenceTagger2.load("resources/v1/sequence-4/final-model.pt")
 
 # CONLL3
 

@@ -11,15 +11,7 @@ Location   tp: 135 - fp: 18 - fn: 12 - precision: 0.8824 - recall: 0.9184 - f1-s
 Miscellaneous tp: 48 - fp: 19 - fn: 20 - precision: 0.7164 - recall: 0.7059 - f1-score: 0.7111
 Organization tp: 129 - fp: 25 - fn: 35 - precision: 0.8377 - recall: 0.7866 - f1-score: 0.8113
 Person     tp: 157 - fp: 4 - fn: 11 - precision: 0.9752 - recall: 0.9345 - f1-score: 0.9544
-tensor(0.0702, device='cuda:0')
-{'Character_Name': 'Character Name'}
-2021-02-16 22:37:56,543 Reading data from /vol/fob-vol7/mi19/harnisph/.flair/datasets/mit_movie_ner_complex
-2021-02-16 22:37:56,543 Train: /vol/fob-vol7/mi19/harnisph/.flair/datasets/mit_movie_ner_complex/trivia10k13train.bio
-2021-02-16 22:37:56,543 Dev: None
-2021-02-16 22:37:56,543 Test: /vol/fob-vol7/mi19/harnisph/.flair/datasets/mit_movie_ner_complex/trivia10k13test.bio
-2021-02-16 22:38:00,048 Computing label dictionary. Progress:
-100%|██████████████████████████████████████| 898/898 [00:00<00:00, 38198.48it/s]
-2021-02-16 22:38:00,072 [b'B-Actor', b'I-Actor', b'O', b'B-Award', b'I-Award', b'B-Year', b'B-Plot', b'I-Plot', b'B-Soundtrack', b'I-Soundtrack', b'B-Origin', b'I-Origin', b'B-Genre', b'B-Character Name', b'I-Character Name', b'B-Relationship', b'I-Relationship', b'I-Genre', b'B-Director', b'I-Director', b'I-Year', b'B-Opinion', b'I-Opinion', b'B-Quote', b'I-Quote']
+
 0.2508960573476703
 PRECISION       RECALL  F1
 0.4506  0.1738  0.2509
@@ -87,3 +79,71 @@ Speed      tp: 0 - fp: 0 - fn: 29 - precision: 0.0000 - recall: 0.0000 - f1-scor
 Temperature tp: 0 - fp: 0 - fn: 85 - precision: 0.0000 - recall: 0.0000 - f1-score: 0.0000
 Time       tp: 0 - fp: 0 - fn: 112 - precision: 0.0000 - recall: 0.0000 - f1-score: 0.0000
 pH         tp: 0 - fp: 2 - fn: 5 - precision: 0.0000 - recall: 0.0000 - f1-score: 0.0000
+
+
+0.0
+PRECISION       RECALL  F1
+0.0000  0.0000  0.0000
+
+Results:
+- F1-score (micro) 0.0000
+- F1-score (macro) 0.0000
+
+By class:
+Negation   tp: 0 - fp: 13 - fn: 18 - precision: 0.0000 - recall: 0.0000 - f1-score: 0.0000
+Speculation tp: 0 - fp: 42 - fn: 46 - precision: 0.0000 - recall: 0.0000 - f1-score: 0.0000
+tensor(0.7988, device='cuda:0')
+0
+<bound method Sentence.to_tagged_string of Sentence: "The Parlament of the United Kingdom is discussing a variety of topics ."   [− Tokens: 13]>
+-------------
+1
+<bound method Sentence.to_tagged_string of Sentence: "Bayern Munich won the german soccer series the sixth time in a row ."   [− Tokens: 14  − Token-Labels: "Bayern <B-Institution> Munich <I-Institution> won the german soccer series the sixth time in a row ."]>
+-------------
+2
+<bound method Sentence.to_tagged_string of Sentence: "The Green Party received only a small percentage of the vote ."   [− Tokens: 12]>
+-------------
+3
+<bound method Sentence.to_tagged_string of Sentence: "The film received the Golden Love Film Award ."   [− Tokens: 9]>
+-------------
+4
+<bound method Sentence.to_tagged_string of Sentence: "I hated the Sci-Fi Genre since I saw this movie ."   [− Tokens: 11]>
+-------------
+5
+<bound method Sentence.to_tagged_string of Sentence: "Today , this pair of shoes costs 100 Dollar ."   [− Tokens: 10]>
+-------------
+6
+<bound method Sentence.to_tagged_string of Sentence: "The Company of Coca Cola was invented in 1901 ."   [− Tokens: 10]>
+-------------
+7
+<bound method Sentence.to_tagged_string of Sentence: "BAYER is based in Leverkusen ."   [− Tokens: 6  − Token-Labels: "BAYER <B-Institution> is based in Leverkusen <B-Time> ."]>
+-------------
+8
+<bound method Sentence.to_tagged_string of Sentence: "The Parlament of the United Kingdom is discussing a variety of topics ."   [− Tokens: 13]>
+-------------
+9
+<bound method Sentence.to_tagged_string of Sentence: "This is very frustrating !"   [− Tokens: 5]>
+-------------
+10
+<bound method Sentence.to_tagged_string of Sentence: "I am happy , yay !"   [− Tokens: 6]>
+-------------
+11
+<bound method Sentence.to_tagged_string of Sentence: "This does not affect me ."   [− Tokens: 6]>
+-------------
+12
+<bound method Sentence.to_tagged_string of Sentence: "The Green Party received only a small percentage of the vote ."   [− Tokens: 12]>
+-------------
+13
+<bound method Sentence.to_tagged_string of Sentence: "The Parlament of the United Kingdom is discussing a variety of topics ."   [− Tokens: 13]>
+-------------
+14
+<bound method Sentence.to_tagged_string of Sentence: "The Republican Party is split in regard to Donald Trump ."   [− Tokens: 11]>
+-------------
+15
+<bound method Sentence.to_tagged_string of Sentence: "Biden is the new president of the United States of America ."   [− Tokens: 12  − Token-Labels: "Biden <B-Politician> is the new president of the United States of America ."]>
+-------------
+16
+<bound method Sentence.to_tagged_string of Sentence: "There are many elections in Germany this year ."   [− Tokens: 9]>
+-------------
+17
+<bound method Sentence.to_tagged_string of Sentence: "Bayern Munich won the german soccer series the sixth time in a row ."   [− Tokens: 14  − Token-Labels: "Bayern <B-Sports Club> Munich <I-Sports Club> won the german soccer series the sixth time in a row ."]>
+-------------
