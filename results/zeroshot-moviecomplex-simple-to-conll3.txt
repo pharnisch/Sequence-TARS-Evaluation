@@ -1,0 +1,31 @@
+0.005657708628005658
+PRECISION       RECALL  F1
+0.0125  0.0037  0.0057
+
+Results:
+- F1-score (micro) 0.0057
+- F1-score (macro) 0.0050
+
+By class:
+Location   tp: 0 - fp: 57 - fn: 147 - precision: 0.0000 - recall: 0.0000 - f1-score: 0.0000
+Miscellaneous tp: 0 - fp: 44 - fn: 68 - precision: 0.0000 - recall: 0.0000 - f1-score: 0.0000
+Organization tp: 2 - fp: 33 - fn: 162 - precision: 0.0571 - recall: 0.0122 - f1-score: 0.0201
+Person     tp: 0 - fp: 24 - fn: 168 - precision: 0.0000 - recall: 0.0000 - f1-score: 0.0000
+tensor(0.2484, device='cuda:0')
+0
+<bound method Sentence.to_tagged_string of Sentence: "The Parlament of the United Kingdom is discussing a variety of topics ."   [− Tokens: 13  − Token-Labels: "The Parlament of the United Kingdom is discussing a variety of topics . <B-Diverse>"]>
+-------------
+1
+<bound method Sentence.to_tagged_string of Sentence: "A man fell in love with a woman . This takes place in the last century . The film received the Golden Love Film Award ."   [− Tokens: 26  − Token-Labels: "A <B-Story> man <I-Story> fell <I-Story> in <I-Story> love <I-Story> with <I-Story> a <I-Story> woman <I-Story> . This takes place in <I-Story> the <I-Story> last <I-Story> century <I-Story> . The film received the Golden Love Film Award . <B-Story>"]>
+-------------
+2
+<bound method Sentence.to_tagged_string of Sentence: "The Company of Coca Cola was invented in 1901 ."   [− Tokens: 10]>
+-------------
+3
+<bound method Sentence.to_tagged_string of Sentence: "This is very frustrating ! I was smiling since I saw you ."   [− Tokens: 13]>
+-------------
+4
+<bound method Sentence.to_tagged_string of Sentence: "The Green Party received only a small percentage of the vote ."   [− Tokens: 12  − Token-Labels: "The Green Party received only a small percentage of the vote . <B-Party>"]>
+-------------
+5
+<bound method Sentence.to_tagged_string of Sentence: "Bayern Munich won the german soccer series the sixth time in a row ."   [− Tokens: 14  − Token-Labels: "Bayern Munich won the german soccer series the sixth time in a row . <B-Sports Club>"]>
