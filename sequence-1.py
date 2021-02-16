@@ -50,47 +50,48 @@ tagger = TARSSequenceTagger2.load("resources/v1/conll_3-simple/final-model.pt")
 
 # WNUT17
 
-label_name_map = {
-"person":"Person", "location":"Location", "creative-work":"Creative Work", "product":"Product", "corporation":"Corporation", "group":"Group"
-}
-print(label_name_map)
-corpus = WNUT_17(tag_to_bioes=None, tag_to_bio2="ner", label_name_map=label_name_map)
-corpus = corpus.downsample(0.1)
-tag_type = "ner"
-tag_dictionary = corpus.make_label_dictionary(tag_type)
-tagger.add_and_switch_to_new_task("sequence-1-wnut17", tag_dictionary=tag_dictionary, tag_type=tag_type)
-result, eval_loss = tagger.evaluate(corpus.test)
-print(result.main_score)
-print(result.log_header)
-print(result.log_line)
-print(result.detailed_results)
-print(eval_loss)
+# label_name_map = {
+# "person":"Person", "location":"Location", "creative-work":"Creative Work", "product":"Product", "corporation":"Corporation", "group":"Group"
+# }
+# print(label_name_map)
+# corpus = WNUT_17(tag_to_bioes=None, tag_to_bio2="ner", label_name_map=label_name_map)
+# corpus = corpus.downsample(0.1)
+# tag_type = "ner"
+# tag_dictionary = corpus.make_label_dictionary(tag_type)
+# tagger.add_and_switch_to_new_task("sequence-1-wnut17", tag_dictionary=tag_dictionary, tag_type=tag_type)
+# result, eval_loss = tagger.evaluate(corpus.test)
+# print(result.main_score)
+# print(result.log_header)
+# print(result.log_line)
+# print(result.detailed_results)
+# print(eval_loss)
 
-# WNUT2020
+# # WNUT2020
 
-label_name_map = {
-}
-print(label_name_map)
-corpus = WNUT_2020_NER(tag_to_bioes=None, tag_to_bio2="ner", label_name_map=label_name_map)
-corpus = corpus.downsample(0.1)
-tag_type = "ner"
-tag_dictionary = corpus.make_label_dictionary(tag_type)
-tagger.add_and_switch_to_new_task("sequence-1-wnut20", tag_dictionary=tag_dictionary, tag_type=tag_type)
-result, eval_loss = tagger.evaluate(corpus.test)
-print(result.main_score)
-print(result.log_header)
-print(result.log_line)
-print(result.detailed_results)
-print(eval_loss)
+# label_name_map = {
+# }
+# print(label_name_map)
+# corpus = WNUT_2020_NER(tag_to_bioes=None, tag_to_bio2="ner", label_name_map=label_name_map)
+# corpus = corpus.downsample(0.1)
+# tag_type = "ner"
+# tag_dictionary = corpus.make_label_dictionary(tag_type)
+# tagger.add_and_switch_to_new_task("sequence-1-wnut20", tag_dictionary=tag_dictionary, tag_type=tag_type)
+# result, eval_loss = tagger.evaluate(corpus.test)
+# print(result.main_score)
+# print(result.log_header)
+# print(result.log_line)
+# print(result.detailed_results)
+# print(eval_loss)
 
 # BIOSCOPE
 
 label_name_map = {
+"NEGATION":"Negation", "SPECULATION":"Speculation"
 }
 print(label_name_map)
 corpus = BIOSCOPE(tag_to_bioes=None, tag_to_bio2="ner", label_name_map=label_name_map)
 corpus = corpus.downsample(0.1)
-tag_type = "ner"
+tag_type = "tag"
 tag_dictionary = corpus.make_label_dictionary(tag_type)
 tagger.add_and_switch_to_new_task("sequence-1-bioscope", tag_dictionary=tag_dictionary, tag_type=tag_type)
 result, eval_loss = tagger.evaluate(corpus.test)
