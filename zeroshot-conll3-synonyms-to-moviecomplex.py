@@ -8,9 +8,9 @@ from flair.models import TARSSequenceTagger2
 from flair.data import Sentence
 from flair.datasets import MIT_MOVIE_NER_COMPLEX
 
-flair.set_seed(1)
+flair.set_seed(2)
 
-tagger = TARSSequenceTagger2.load("resources/v1/conll_3-synonyms/final-model.pt")
+tagger = TARSSequenceTagger2.load("resources/v2/conll_3-synonyms/final-model.pt")
 
 label_name_map = {
 "Character_Name":"Character Name"

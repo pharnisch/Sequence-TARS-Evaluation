@@ -10,9 +10,9 @@ from flair.datasets import MIT_MOVIE_NER_COMPLEX, CONLL_03, WNUT_17, WNUT_2020_N
 from flair.trainers import ModelTrainer
 from torch.optim.lr_scheduler import OneCycleLR
 
-flair.set_seed(1)
+flair.set_seed(2)
 
-tagger = TARSSequenceTagger2.load("resources/v1/sequence-4/final-model.pt")
+tagger = TARSSequenceTagger2.load("resources/v2/sequence-4/final-model.pt")
 
 label_name_map = {
 "NEGATION":"Negation", "SPECULATION":"Speculation"
@@ -27,7 +27,7 @@ tagger.add_and_switch_to_new_task("sequence-5-train", tag_dictionary=tag_diction
 
 trainer = ModelTrainer(tagger, corpus, optimizer=torch.optim.AdamW)
 trainer.train(
-    base_path='resources/v1/sequence-5',
+    base_path='resources/v2/sequence-5',
     learning_rate=5.0e-5,
     mini_batch_size=32,
     mini_batch_chunk_size=None,
