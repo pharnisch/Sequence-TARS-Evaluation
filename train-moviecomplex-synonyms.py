@@ -12,7 +12,7 @@ from flair.data import Sentence
 from flair.data import MultiCorpus
 from flair.datasets import MIT_MOVIE_NER_COMPLEX
 
-flair.set_seed(2)
+flair.set_seed(3)
 
 label_name_map = {
 "Actor":"Actor Artist Character",
@@ -42,7 +42,7 @@ tagger = TARSSequenceTagger2(tag_dictionary=label_dictionary, tag_type=tag_type,
 trainer = ModelTrainer(tagger, corpus, optimizer=torch.optim.AdamW)
 from torch.optim.lr_scheduler import OneCycleLR
 trainer.train(
-    base_path='resources/v2/moviecomplex-synonyms',
+    base_path='resources/v3/moviecomplex-synonyms',
     learning_rate=5.0e-5,
     mini_batch_size=32,
     mini_batch_chunk_size=None,

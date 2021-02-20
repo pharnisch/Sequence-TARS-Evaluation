@@ -45,9 +45,9 @@ def _remove_not_unique_items_from_list(l: list):
 
 ####
 
-flair.set_seed(2)
+flair.set_seed(3)
 
-tagger = TARSSequenceTagger2.load("resources/v2/moviecomplex-synonyms/final-model.pt")
+tagger = TARSSequenceTagger2.load("resources/v3/moviecomplex-synonyms/final-model.pt")
 
 ### train k sentences for each tag in new corpus
 k = 1
@@ -88,7 +88,7 @@ trainer = ModelTrainer(tagger, training_corpus, optimizer=torch.optim.AdamW)
 tag_dictionary = training_corpus.make_label_dictionary(tag_type)
 tagger.add_and_switch_to_new_task("fewshot-moviecomplex-synonyms-to-conll3", tag_dictionary=tag_dictionary, tag_type=tag_type)
 trainer.train(
-    base_path='resources/v2/fewshot-moviecomplex-synonyms-to-conll3-k' + str(k),
+    base_path='resources/v3/fewshot-moviecomplex-synonyms-to-conll3-k' + str(k),
     learning_rate=5.0e-5,
     mini_batch_size=32,
     mini_batch_chunk_size=None,

@@ -8,9 +8,9 @@ from flair.models import TARSSequenceTagger2
 from flair.data import Sentence
 from flair.datasets import CONLL_03
 
-tagger = TARSSequenceTagger2.load("resources/v2/moviecomplex-long/final-model.pt")
+tagger = TARSSequenceTagger2.load("resources/v3/moviecomplex-long/final-model.pt")
 
-flair.set_seed(2)
+flair.set_seed(3)
 
 label_name_map = {
 "LOC":"Location","PER":"Person","ORG":"Organization","MISC":"Miscellaneous"

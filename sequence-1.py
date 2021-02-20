@@ -8,9 +8,9 @@ from flair.models import TARSSequenceTagger2
 from flair.data import Sentence
 from flair.datasets import MIT_MOVIE_NER_COMPLEX, CONLL_03, WNUT_17, WNUT_2020_NER, BIOSCOPE
 
-flair.set_seed(2)
+flair.set_seed(3)
 
-tagger = TARSSequenceTagger2.load("resources/v2/conll_3-simple/final-model.pt")
+tagger = TARSSequenceTagger2.load("resources/v3/conll_3-simple/final-model.pt")
 
 # CONLL3
 

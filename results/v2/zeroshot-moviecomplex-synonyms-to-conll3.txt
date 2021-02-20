@@ -1,0 +1,32 @@
+0.05063291139240506
+PRECISION       RECALL  F1
+0.1463  0.0306  0.0506
+
+Results:
+- F1-score (micro) 0.0506
+- F1-score (macro) 0.0437
+
+By class:
+Location   tp: 0 - fp: 11 - fn: 179 - precision: 0.0000 - recall: 0.0000 - f1-score: 0.0000
+Miscellaneous tp: 0 - fp: 33 - fn: 77 - precision: 0.0000 - recall: 0.0000 - f1-score: 0.0000
+Organization tp: 5 - fp: 32 - fn: 163 - precision: 0.1351 - recall: 0.0298 - f1-score: 0.0488
+Person     tp: 13 - fp: 29 - fn: 151 - precision: 0.3095 - recall: 0.0793 - f1-score: 0.1262
+tensor(0.2226, device='cuda:0')
+0
+<bound method Sentence.to_tagged_string of Sentence: "The Parlament of the United Kingdom is discussing a variety of topics ."   [− Tokens: 13]>
+-------------
+1
+<bound method Sentence.to_tagged_string of Sentence: "A man fell in love with a woman . This takes place in the last century . The film received the Golden Love Film Award ."   [− Tokens: 26]>
+-------------
+2
+<bound method Sentence.to_tagged_string of Sentence: "The Company of Coca Cola was invented in 1901 ."   [− Tokens: 10]>
+-------------
+3
+<bound method Sentence.to_tagged_string of Sentence: "This is very frustrating ! I was smiling since I saw you ."   [− Tokens: 13]>
+-------------
+4
+<bound method Sentence.to_tagged_string of Sentence: "The Green Party received only a small percentage of the vote ."   [− Tokens: 12  − Token-Labels: "The Green <B-Party> Party received only a small percentage of the vote ."]>
+-------------
+5
+<bound method Sentence.to_tagged_string of Sentence: "Bayern Munich won the german soccer series the sixth time in a row ."   [− Tokens: 14]>
+-------------

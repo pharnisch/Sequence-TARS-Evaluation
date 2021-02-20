@@ -1,0 +1,39 @@
+0.01741654571843251
+PRECISION       RECALL  F1
+0.0577  0.0103  0.0174
+
+Results:
+- F1-score (micro) 0.0174
+- F1-score (macro) 0.0152
+
+By class:
+Actor      tp: 0 - fp: 9 - fn: 140 - precision: 0.0000 - recall: 0.0000 - f1-score: 0.0000
+Character Name tp: 6 - fp: 42 - fn: 18 - precision: 0.1250 - recall: 0.2500 - f1-score: 0.1667
+Director   tp: 0 - fp: 0 - fn: 43 - precision: 0.0000 - recall: 0.0000 - f1-score: 0.0000
+Genre      tp: 0 - fp: 1 - fn: 85 - precision: 0.0000 - recall: 0.0000 - f1-score: 0.0000
+Opinion    tp: 0 - fp: 7 - fn: 28 - precision: 0.0000 - recall: 0.0000 - f1-score: 0.0000
+Origin     tp: 0 - fp: 5 - fn: 23 - precision: 0.0000 - recall: 0.0000 - f1-score: 0.0000
+Plot       tp: 0 - fp: 16 - fn: 157 - precision: 0.0000 - recall: 0.0000 - f1-score: 0.0000
+Quote      tp: 0 - fp: 0 - fn: 6 - precision: 0.0000 - recall: 0.0000 - f1-score: 0.0000
+Relationship tp: 0 - fp: 9 - fn: 13 - precision: 0.0000 - recall: 0.0000 - f1-score: 0.0000
+Soundtrack tp: 0 - fp: 5 - fn: 2 - precision: 0.0000 - recall: 0.0000 - f1-score: 0.0000
+Year       tp: 0 - fp: 4 - fn: 64 - precision: 0.0000 - recall: 0.0000 - f1-score: 0.0000
+tensor(0.3980, device='cuda:0')
+0
+<bound method Sentence.to_tagged_string of Sentence: "The Parlament of the United Kingdom is discussing a variety of topics ."   [− Tokens: 13]>
+-------------
+1
+<bound method Sentence.to_tagged_string of Sentence: "A man fell in love with a woman . This takes place in the last century . The film received the Golden Love Film Award ."   [− Tokens: 26]>
+-------------
+2
+<bound method Sentence.to_tagged_string of Sentence: "The Company of Coca Cola was invented in 1901 ."   [− Tokens: 10  − Token-Labels: "The Company of Coca <B-Time> Cola was invented in 1901 ."]>
+-------------
+3
+<bound method Sentence.to_tagged_string of Sentence: "This is very frustrating ! I was smiling since I saw you ."   [− Tokens: 13]>
+-------------
+4
+<bound method Sentence.to_tagged_string of Sentence: "The Green Party received only a small percentage of the vote ."   [− Tokens: 12  − Token-Labels: "The Green <B-Party> Party received only a small percentage of the vote ."]>
+-------------
+5
+<bound method Sentence.to_tagged_string of Sentence: "Bayern Munich won the german soccer series the sixth time in a row ."   [− Tokens: 14  − Token-Labels: "Bayern <B-Sports Club> Munich <I-Sports Club> won the german soccer series the sixth time in a row ."]>
+-------------
