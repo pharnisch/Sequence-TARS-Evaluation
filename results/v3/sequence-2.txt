@@ -1,0 +1,178 @@
+0.7123848515864892
+PRECISION       RECALL  F1
+0.8286  0.6248  0.7124
+
+Results:
+- F1-score (micro) 0.7124
+- F1-score (macro) 0.5867
+
+By class:
+Location   tp: 128 - fp: 9 - fn: 52 - precision: 0.9343 - recall: 0.7111 - f1-score: 0.8076
+Miscellaneous tp: 3 - fp: 16 - fn: 54 - precision: 0.1579 - recall: 0.0526 - f1-score: 0.0789
+Organization tp: 80 - fp: 34 - fn: 60 - precision: 0.7018 - recall: 0.5714 - f1-score: 0.6299
+Person     tp: 137 - fp: 13 - fn: 43 - precision: 0.9133 - recall: 0.7611 - f1-score: 0.8303
+tensor(0.1009, device='cuda:0')
+{'Character_Name': 'Character Name'}
+2021-02-20 22:36:49,819 Reading data from /vol/fob-vol7/mi19/harnisph/.flair/datasets/mit_movie_ner_complex
+2021-02-20 22:36:49,820 Train: /vol/fob-vol7/mi19/harnisph/.flair/datasets/mit_movie_ner_complex/trivia10k13train.bio
+2021-02-20 22:36:49,820 Dev: None
+2021-02-20 22:36:49,820 Test: /vol/fob-vol7/mi19/harnisph/.flair/datasets/mit_movie_ner_complex/trivia10k13test.bio
+2021-02-20 22:36:53,179 Computing label dictionary. Progress:
+100%|██████████████████████████████████████| 898/898 [00:00<00:00, 36948.42it/s]
+2021-02-20 22:36:53,204 [b'O', b'B-Plot', b'I-Plot', b'B-Character Name', b'B-Year', b'B-Actor', b'I-Actor', b'B-Opinion', b'I-Opinion', b'B-Genre', b'I-Genre', b'I-Character Name', b'B-Director', b'I-Director', b'B-Origin', b'B-Quote', b'I-Quote', b'I-Origin', b'B-Relationship', b'I-Relationship', b'B-Award', b'I-Award', b'I-Year', b'B-Soundtrack', b'I-Soundtrack']
+0.6209386281588447
+PRECISION       RECALL  F1
+0.6014  0.6418  0.6209
+
+Results:
+- F1-score (micro) 0.6209
+- F1-score (macro) 0.4456
+
+By class:
+Actor      tp: 98 - fp: 15 - fn: 7 - precision: 0.8673 - recall: 0.9333 - f1-score: 0.8991
+Award      tp: 4 - fp: 7 - fn: 5 - precision: 0.3636 - recall: 0.4444 - f1-score: 0.4000
+Character Name tp: 7 - fp: 6 - fn: 13 - precision: 0.5385 - recall: 0.3500 - f1-score: 0.4242
+Director   tp: 30 - fp: 8 - fn: 13 - precision: 0.7895 - recall: 0.6977 - f1-score: 0.7407
+Genre      tp: 53 - fp: 21 - fn: 16 - precision: 0.7162 - recall: 0.7681 - f1-score: 0.7413
+Opinion    tp: 4 - fp: 2 - fn: 12 - precision: 0.6667 - recall: 0.2500 - f1-score: 0.3636
+Origin     tp: 2 - fp: 19 - fn: 12 - precision: 0.0952 - recall: 0.1429 - f1-score: 0.1143
+Plot       tp: 80 - fp: 140 - fn: 98 - precision: 0.3636 - recall: 0.4494 - f1-score: 0.4020
+Quote      tp: 0 - fp: 0 - fn: 1 - precision: 0.0000 - recall: 0.0000 - f1-score: 0.0000
+Relationship tp: 4 - fp: 8 - fn: 10 - precision: 0.3333 - recall: 0.2857 - f1-score: 0.3077
+Soundtrack tp: 0 - fp: 0 - fn: 1 - precision: 0.0000 - recall: 0.0000 - f1-score: 0.0000
+Year       tp: 62 - fp: 2 - fn: 4 - precision: 0.9688 - recall: 0.9394 - f1-score: 0.9538
+tensor(0.0723, device='cuda:0')
+{'person': 'Person', 'location': 'Location', 'creative-work': 'Creative Work', 'product': 'Product', 'corporation': 'Corporation', 'group': 'Group'}
+2021-02-20 22:37:33,171 Reading data from /vol/fob-vol7/mi19/harnisph/.flair/datasets/wnut_17
+2021-02-20 22:37:33,171 Train: /vol/fob-vol7/mi19/harnisph/.flair/datasets/wnut_17/wnut17train.conll
+2021-02-20 22:37:33,171 Dev: /vol/fob-vol7/mi19/harnisph/.flair/datasets/wnut_17/emerging.dev.conll
+2021-02-20 22:37:33,171 Test: /vol/fob-vol7/mi19/harnisph/.flair/datasets/wnut_17/emerging.test.annotated
+2021-02-20 22:37:35,179 Computing label dictionary. Progress:
+100%|██████████████████████████████████████| 468/468 [00:00<00:00, 44533.20it/s]
+2021-02-20 22:37:35,191 [b'O', b'B-Person', b'B-Location', b'B-Group', b'I-Group', b'B-Creative Work', b'I-Creative Work', b'B-Corporation', b'I-Location', b'I-Person', b'I-Corporation', b'B-Product', b'I-Product']
+0.2269503546099291
+PRECISION       RECALL  F1
+0.8000  0.1322  0.2270
+
+Results:
+- F1-score (micro) 0.2270
+- F1-score (macro) 0.1119
+
+By class:
+Corporation tp: 0 - fp: 0 - fn: 9 - precision: 0.0000 - recall: 0.0000 - f1-score: 0.0000
+Creative Work tp: 0 - fp: 0 - fn: 14 - precision: 0.0000 - recall: 0.0000 - f1-score: 0.0000
+Group      tp: 0 - fp: 1 - fn: 14 - precision: 0.0000 - recall: 0.0000 - f1-score: 0.0000
+Location   tp: 3 - fp: 2 - fn: 12 - precision: 0.6000 - recall: 0.2000 - f1-score: 0.3000
+Person     tp: 13 - fp: 1 - fn: 43 - precision: 0.9286 - recall: 0.2321 - f1-score: 0.3714
+Product    tp: 0 - fp: 0 - fn: 13 - precision: 0.0000 - recall: 0.0000 - f1-score: 0.0000
+tensor(0.0682, device='cuda:0')
+{}
+2021-02-20 22:37:49,479 Reading data from /vol/fob-vol7/mi19/harnisph/.flair/datasets/wnut_2020_ner
+2021-02-20 22:37:49,479 Train: /vol/fob-vol7/mi19/harnisph/.flair/datasets/wnut_2020_ner/train.txt
+2021-02-20 22:37:49,479 Dev: /vol/fob-vol7/mi19/harnisph/.flair/datasets/wnut_2020_ner/dev.txt
+2021-02-20 22:37:49,480 Test: /vol/fob-vol7/mi19/harnisph/.flair/datasets/wnut_2020_ner/test.txt
+2021-02-20 22:37:53,987 Computing label dictionary. Progress:
+100%|████████████████████████████████████| 1200/1200 [00:00<00:00, 48692.18it/s]
+2021-02-20 22:37:54,012 [b'B-Action', b'B-Time', b'I-Time', b'O', b'B-Temperature', b'I-Temperature', b'I-Action', b'B-Reagent', b'I-Reagent', b'B-Location', b'B-Measure-Type', b'B-Generic-Measure', b'I-Generic-Measure', b'B-Modifier', b'I-Modifier', b'B-Method', b'B-Device', b'B-Speed', b'I-Speed', b'B-Numerical', b'B-Amount', b'I-Amount', b'I-Location', b'B-Mention', b'I-Method', b'I-Measure-Type', b'I-Device', b'B-Size', b'B-Seal', b'I-Size', b'B-Concentration', b'I-Concentration', b'I-Numerical', b'I-Seal', b'B-pH', b'I-pH']
+0.0
+PRECISION       RECALL  F1
+0.0000  0.0000  0.0000
+
+Results:
+- F1-score (micro) 0.0000
+- F1-score (macro) 0.0000
+
+By class:
+Action     tp: 0 - fp: 0 - fn: 554 - precision: 0.0000 - recall: 0.0000 - f1-score: 0.0000
+Amount     tp: 0 - fp: 0 - fn: 114 - precision: 0.0000 - recall: 0.0000 - f1-score: 0.0000
+Concentration tp: 0 - fp: 0 - fn: 75 - precision: 0.0000 - recall: 0.0000 - f1-score: 0.0000
+Device     tp: 0 - fp: 0 - fn: 81 - precision: 0.0000 - recall: 0.0000 - f1-score: 0.0000
+Generic-Measure tp: 0 - fp: 0 - fn: 17 - precision: 0.0000 - recall: 0.0000 - f1-score: 0.0000
+Location   tp: 0 - fp: 0 - fn: 168 - precision: 0.0000 - recall: 0.0000 - f1-score: 0.0000
+Measure-Type tp: 0 - fp: 0 - fn: 85 - precision: 0.0000 - recall: 0.0000 - f1-score: 0.0000
+Mention    tp: 0 - fp: 0 - fn: 19 - precision: 0.0000 - recall: 0.0000 - f1-score: 0.0000
+Method     tp: 0 - fp: 0 - fn: 100 - precision: 0.0000 - recall: 0.0000 - f1-score: 0.0000
+Modifier   tp: 0 - fp: 0 - fn: 347 - precision: 0.0000 - recall: 0.0000 - f1-score: 0.0000
+Numerical  tp: 0 - fp: 0 - fn: 54 - precision: 0.0000 - recall: 0.0000 - f1-score: 0.0000
+Reagent    tp: 0 - fp: 0 - fn: 510 - precision: 0.0000 - recall: 0.0000 - f1-score: 0.0000
+Seal       tp: 0 - fp: 0 - fn: 13 - precision: 0.0000 - recall: 0.0000 - f1-score: 0.0000
+Size       tp: 0 - fp: 0 - fn: 17 - precision: 0.0000 - recall: 0.0000 - f1-score: 0.0000
+Speed      tp: 0 - fp: 0 - fn: 11 - precision: 0.0000 - recall: 0.0000 - f1-score: 0.0000
+Temperature tp: 0 - fp: 0 - fn: 64 - precision: 0.0000 - recall: 0.0000 - f1-score: 0.0000
+Time       tp: 0 - fp: 0 - fn: 77 - precision: 0.0000 - recall: 0.0000 - f1-score: 0.0000
+pH         tp: 0 - fp: 0 - fn: 2 - precision: 0.0000 - recall: 0.0000 - f1-score: 0.0000
+tensor(0.2043, device='cuda:0')
+{'NEGATION': 'Negation', 'SPECULATION': 'Speculation'}
+2021-02-20 22:40:12,898 Reading data from /vol/fob-vol7/mi19/harnisph/.flair/datasets/bioscope
+2021-02-20 22:40:12,899 Train: /vol/fob-vol7/mi19/harnisph/.flair/datasets/bioscope/output.txt
+2021-02-20 22:40:12,899 Dev: None
+2021-02-20 22:40:12,899 Test: None
+2021-02-20 22:40:20,448 Computing label dictionary. Progress:
+100%|████████████████████████████████████| 1323/1323 [00:00<00:00, 34001.41it/s]
+2021-02-20 22:40:20,488 [b'O', b'B-Speculation', b'I-Speculation', b'B-Negation', b'I-Negation']
+0.0
+PRECISION       RECALL  F1
+0.0000  0.0000  0.0000
+
+Results:
+- F1-score (micro) 0.0000
+- F1-score (macro) 0.0000
+
+By class:
+Negation   tp: 0 - fp: 1 - fn: 18 - precision: 0.0000 - recall: 0.0000 - f1-score: 0.0000
+Speculation tp: 0 - fp: 2 - fn: 28 - precision: 0.0000 - recall: 0.0000 - f1-score: 0.0000
+tensor(0.4785, device='cuda:0')
+0
+<bound method Sentence.to_tagged_string of Sentence: "The Parlament of the United Kingdom is discussing a variety of topics ."   [− Tokens: 13  − Token-Labels: "The Parlament of the United Kingdom <I-Place> is discussing a variety of topics ."]>
+-------------
+1
+<bound method Sentence.to_tagged_string of Sentence: "Bayern Munich won the german soccer series the sixth time in a row ."   [− Tokens: 14]>
+-------------
+2
+<bound method Sentence.to_tagged_string of Sentence: "The Green Party received only a small percentage of the vote ."   [− Tokens: 12]>
+-------------
+3
+<bound method Sentence.to_tagged_string of Sentence: "The film received the Golden Love Film Award ."   [− Tokens: 9]>
+-------------
+4
+<bound method Sentence.to_tagged_string of Sentence: "I hated the Sci-Fi Genre since I saw this movie ."   [− Tokens: 11  − Token-Labels: "I hated the Sci-Fi <B-Time> Genre since I saw this movie ."]>
+-------------
+5
+<bound method Sentence.to_tagged_string of Sentence: "Today , this pair of shoes costs 100 Dollar ."   [− Tokens: 10]>
+-------------
+6
+<bound method Sentence.to_tagged_string of Sentence: "The Company of Coca Cola was invented in 1901 ."   [− Tokens: 10]>
+-------------
+7
+<bound method Sentence.to_tagged_string of Sentence: "BAYER is based in Leverkusen ."   [− Tokens: 6  − Token-Labels: "BAYER <B-Institution> is based in Leverkusen ."]>
+-------------
+8
+<bound method Sentence.to_tagged_string of Sentence: "The Parlament of the United Kingdom is discussing a variety of topics ."   [− Tokens: 13]>
+-------------
+9
+<bound method Sentence.to_tagged_string of Sentence: "This is very frustrating !"   [− Tokens: 5]>
+-------------
+10
+<bound method Sentence.to_tagged_string of Sentence: "I am happy , yay !"   [− Tokens: 6]>
+-------------
+11
+<bound method Sentence.to_tagged_string of Sentence: "This does not affect me ."   [− Tokens: 6]>
+-------------
+12
+<bound method Sentence.to_tagged_string of Sentence: "The Green Party received only a small percentage of the vote ."   [− Tokens: 12  − Token-Labels: "The Green <B-Party> Party <I-Party> received only a small percentage of the vote ."]>
+-------------
+13
+<bound method Sentence.to_tagged_string of Sentence: "The Parlament of the United Kingdom is discussing a variety of topics ."   [− Tokens: 13]>
+-------------
+14
+<bound method Sentence.to_tagged_string of Sentence: "The Republican Party is split in regard to Donald Trump ."   [− Tokens: 11  − Token-Labels: "The Republican <B-Party> Party is split in regard to Donald <B-Politician> Trump <I-Politician> ."]>
+-------------
+15
+<bound method Sentence.to_tagged_string of Sentence: "Biden is the new president of the United States of America ."   [− Tokens: 12  − Token-Labels: "Biden <B-Politician> is the new president of the United States of America ."]>
+-------------
+16
+<bound method Sentence.to_tagged_string of Sentence: "There are many elections in Germany this year ."   [− Tokens: 9]>
+-------------
+17
+<bound method Sentence.to_tagged_string of Sentence: "Bayern Munich won the german soccer series the sixth time in a row ."   [− Tokens: 14]>
+-------------

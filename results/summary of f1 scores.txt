@@ -1,0 +1,75 @@
+				1	2	3	mean	stddev.
+
+conll cryptic			0.8577	0.8532	0.8367
+conll simple			0.8669	0.8588	0.8283
+conll synonyms			0.8624	0.8670	0.8499
+
+movie cryptic			0.5996	0.6515	0.5660
+movie long			0.6070	0.6369	0.5850
+movie simple			0.6230	0.6442	0.5714
+movie synonyms			0.6168	0.6599	0.5757
+
+conll cryptic zeroshot		0.0034	0.0000	0.0000
+conll cryptic fewshot1		0.0036	0.0033	0.0000
+conll cryptic fewshot5		0.0000	0.0000	0.0156
+conll cryptic fewshot10		0.0000	0.0000	0.0477
+
+conll simple zeroshot		0.2378	0.1578	0.0930
+conll simple fewshot1		0.0132	0.1264	0.0067
+conll simple fewshot5		0.0180	0.1680	0.0000
+conll simple fewshot10		0.2949	0.1191	0.0000
+
+conll synonyms zeroshot		0.0101	0.0174	0.1214
+conll synonyms fewshot1		0.0000	0.0434	0.1025
+conll synonyms fewshot5		0.0000	0.0000	0.0000
+conll synonyms fewshot10	0.0344	0.1036	0.0000
+
+movie cryptic zeroshot		0.0039	0.0000	0.0035
+movie cryptic fewshot1		0.0036	0.0033	0.0681
+movie cryptic fewshot5		0.0392	0.0426	0.0162
+movie cryptic fewshot10		0.0328	0.0985	0.0168
+
+movie long zeroshot		0.0281	0.0515	0.0000
+movie long fewshot1		0.0833	0.2200	0.0035
+movie long fewshot5		0.1740	0.1019	0.0106
+movie long fewshot10		0.2955	0.3132	0.0785
+
+movie simple zeroshot		0.0057	0.0435	0.0036
+movie simple fewshot1		0.1138	0.2872	0.0579
+movie simple fewshot5		0.1490	0.1255	0.0394
+movie simple fewshot10		0.3630	0.4192	0.2388
+
+movie synonyms zeroshot		0.0246	0.0506	0.0000
+movie synonyms fewshot1		0.0436	0.2051	0.0277
+movie synonyms fewshot5		0.1446	0.1387	0.0708
+movie synonyms fewshot10	0.3638	0.3220	0.1038
+
+sequence1a			0.8669	0.8588	0.8283
+sequence1b			0.2509	0.1523	0.0754
+sequence1c			0.3645	0.3465	0.2750
+sequence1d			0.0000	0.0008	0.0025
+sequence1e			0.0000	0.0000	0.0000
+
+sequence2a			0.7224	0.7147	0.7124
+sequence2b			0.6543	0.6203	0.6209
+sequence2c			0.4412	0.2517	0.2270
+sequence2d			0.0000	0.0008	0.0000
+sequence2e			0.0000	0.0000	0.0000
+
+sequence3a			0.7780	0.7475	0.7546
+sequence3b			0.5992	0.5213	0.5279
+sequence3c			0.4965	0.4318	0.3957
+sequence3d			0.0008	0.0008	0.0068
+sequence3e			0.0000	0.0000	0.0000
+
+sequence4a			0.6814	0.7119	0.6838
+sequence4b			0.5679	0.5171	0.4972
+sequence4c			0.3657	0.3486	0.3519
+sequence4d			0.7096	0.7158	0.6735
+sequence4e			0.0000	0.0000	0.0000
+
+sequence5a			0.5490	0.5661	0.4585
+sequence5b			0.5568	0.5310	0.5481
+sequence5c			0.3910	0.2405	0.2434
+sequence5d			0.3645	0.3435	0.4066
+sequence5e			0.5038	0.6552	0.4490
