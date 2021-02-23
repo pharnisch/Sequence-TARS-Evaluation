@@ -1,9 +1,9 @@
 import sys
 import os
-#sys.path.insert(0, os.path.join('C:/', 'Users', 'pharn', 'flair'))
-#sys.path.insert(0, os.path.join('C:/', 'Users', 'pharn', 'AppData', 'Local', 'Packages', 'PythonSoftwareFoundation.Python.3.8_qbz5n2kfra8p0', 'LocalCache', 'local-packages', 'Python38', 'site-packages'))
-sys.path.insert(0, "/vol/fob-vol7/mi19/harnisph/flair")
-sys.path.insert(0, os.path.join("vol", "fob-vol7", "mi19", "harnisph", "flair"))
+sys.path.insert(0, os.path.join('C:/', 'Users', 'pharn', 'flair'))
+sys.path.insert(0, os.path.join('C:/', 'Users', 'pharn', 'AppData', 'Local', 'Packages', 'PythonSoftwareFoundation.Python.3.8_qbz5n2kfra8p0', 'LocalCache', 'local-packages', 'Python38', 'site-packages'))
+#sys.path.insert(0, "/vol/fob-vol7/mi19/harnisph/flair")
+#sys.path.insert(0, os.path.join("vol", "fob-vol7", "mi19", "harnisph", "flair"))
 
 
 import flair

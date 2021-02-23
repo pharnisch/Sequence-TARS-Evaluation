@@ -4,9 +4,9 @@
 
 conll cryptic						0.8492	0.0156
 conll simple						0.8513	0.0288
-conll simple 2
-
-conll simple 3
+conll simple 2						0.8702	0.0112
+conll simple 3						0.8357	0.0233
+conll simple 4			
 
 conll synonyms						0.8598	0.0125
 

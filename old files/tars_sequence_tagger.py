@@ -19,7 +19,8 @@ print(label_dict_ger)
 corpus = flair.datasets.UD_ENGLISH()
 label_dict = corpus.make_label_dictionary('upos')
 
-tagger = TARSSequenceTagger(embeddings=WordEmbeddings("glove"), tag_dictionary=label_dict, tag_type="upos", task_name="UD_ENGLISH")
+#tagger = TARSSequenceTagger(embeddings=WordEmbeddings("glove"), tag_dictionary=label_dict, tag_type="upos", task_name="UD_ENGLISH")
+tagger = TARSSequenceTagger2(tag_dictionary=label_dictionary, tag_type=tag_type, task_name="TEST_NER")
 tagger.add_and_switch_to_new_task("UD_GERMAN", label_dict_ger, "upos")
 tagger.list_existing_tasks()
 
